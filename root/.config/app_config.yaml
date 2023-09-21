@@ -1,0 +1,33 @@
+version: v3
+teleport:
+  nodename: diptel
+  data_dir: /root/.config/olt02app
+  join_params:
+    token_name: ######################
+    method: token
+  proxy_server: control.diptel.id:443
+  log:
+    output: stderr
+    severity: INFO
+    format:
+      output: text
+  ca_pin: ""
+  diag_addr: ""
+auth_service:
+  enabled: "no"
+ssh_service:
+  enabled: "no"
+proxy_service:
+  enabled: "no"
+  https_keypairs: []
+  https_keypairs_reload_interval: 0s
+  acme: {}
+app_service:
+  enabled: "yes"
+  debug_app: false
+  apps:
+  - name: olt02-hioso-02
+    description: "OLT No 02 HIOSO Sedayulawas"
+    uri: http://192.xxx.xx.xxx/
+    public_addr: "olt02.control.diptel.id"
+    insecure_skip_verify: false
